@@ -1,27 +1,32 @@
 import React, { memo } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-export const GlowingText = memo(() => {
+export interface GlowingTextProps {
+  label?: string;
+}
+
+export const GlowingText = memo<GlowingTextProps>(({ label }) => {
   return (
     <H1>
-      <GlowStyled>j</GlowStyled>
-      <GlowStyled>a</GlowStyled>
-      <GlowStyled>c</GlowStyled>
-      <GlowStyled>o</GlowStyled>
-      <GlowStyled>b</GlowStyled>
+      {label
+        ?.split('')
+        .map((s, i) =>
+          React.createElement(GlowStyled, { key: `s-${i}`, index: i }, s),
+        )}
     </H1>
   );
 });
 
 const H1 = styled.h1`
   font-size: 12em;
+  text-transform: uppercase;
 `;
 
 const animate = keyframes`
     0%, 100% 
     {
         color: white;
-        filter: blur(2px);
+        filter: blur(1px);
         text-shadow: 0 0 10px Aqua;
         text-shadow: 0 0 20px Aqua;
         text-shadow: 0 0 40px Aqua;
@@ -38,26 +43,11 @@ const animate = keyframes`
     }
 `;
 
-const GlowStyled = styled.span`
+const GlowStyled = styled.span<{ index: number }>`
   text-transform: uppercase;
   display: table-cell;
   margin: 0;
   padding: 0;
   animation: ${animate} 2s linear infinite;
-
-  &:nth-child(1) {
-    animation-delay: 0s;
-  }
-  &:nth-child(2) {
-    animation-delay: 0.25s;
-  }
-  &:nth-child(3) {
-    animation-delay: 0.5s;
-  }
-  &:nth-child(4) {
-    animation-delay: 0.75s;
-  }
-  &:nth-child(5) {
-    animation-delay: 1s;
-  }
+  animation-delay: ${(props) => `${props.index * 0.25}s`};
 `;

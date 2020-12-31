@@ -1,16 +1,16 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { GlowingText, GlowingTextProps } from '../components';
+import { LongTextShadow, LongTextShadowProps } from '../components';
 import { text } from '@storybook/addon-knobs';
 
 export default {
-  title: 'jacob-css/GlowingText',
-  component: GlowingText,
+  title: 'jacob-css/LongTextShadow',
+  component: LongTextShadow,
 } as Meta;
 
-const Template: Story<GlowingTextProps> = () => {
+const Template: Story<LongTextShadowProps> = (args) => {
   const label = text('label', 'jacob');
-  return <GlowingText label={label} />;
+  return <LongTextShadow label={label} />;
 };
 
 export const BasicCss = Template.bind({});

@@ -10,6 +10,10 @@
 
 ```bash
 npm i && npm run storybook
-or
+```
+
+또는
+
+```
 yarn install && yarn storybook
 ```
