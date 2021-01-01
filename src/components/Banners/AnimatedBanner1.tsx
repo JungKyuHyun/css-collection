@@ -135,6 +135,7 @@ const SnowContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: #f1f1f1;
+  overflow: hidden;
 
   ${Snow}:nth-child(even) {
     background: transparent;
