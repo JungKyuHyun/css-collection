@@ -7,7 +7,7 @@ export interface NeonButtonProps {
 
 export const NeonButton = memo<NeonButtonProps>(({ label }) => {
   return (
-    <NeonButtonContainer>
+    <NeonButtonContainer href="#">
       {label}
       <Border />
       <Border />
