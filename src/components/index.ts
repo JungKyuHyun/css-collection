@@ -5,3 +5,4 @@ export * from './NeonButton';
 export * from './GlowingCheckbox';
 export * from './Banners';
 export * from './Dropdown';
+export * from './AnimatedEyesFollowMouseCursor';
