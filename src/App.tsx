@@ -1,14 +1,8 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import { GlowingText, ClimbEffects } from './components';
 
 function App() {
-  return (
-    <LayoutContainer>
-      {/* <GlowingText /> */}
-      <ClimbEffects />
-    </LayoutContainer>
-  );
+  return <LayoutContainer></LayoutContainer>;
 }
 
 const LayoutContainer = styled.div`
