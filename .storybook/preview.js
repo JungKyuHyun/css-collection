@@ -10,23 +10,3 @@ export const parameters = {
     ],
   },
 };
-
-export const decorators = [
-  (Story) => {
-    const style = {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100vh',
-      overflow: 'hidden',
-      boxSizing: 'border-box',
-    };
-
-    return (
-      <div style={style}>
-        <Story />
-      </div>
-    );
-  },
-];

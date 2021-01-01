@@ -3,16 +3,25 @@ import styled, { keyframes } from 'styled-components';
 
 export const ClimbEffects = memo(() => {
   return (
-    <Container>
-      <Box>
-        <Cube></Cube>
-      </Box>
-    </Container>
+    <Bg>
+      <Container>
+        <Box>
+          <Cube></Cube>
+        </Box>
+      </Container>
+    </Bg>
   );
 });
 
+const Bg = styled.div`
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+`;
 const Container = styled.div`
   position: relative;
+  top: 40%;
   width: 100%;
   transform: rotate(-35deg);
 `;

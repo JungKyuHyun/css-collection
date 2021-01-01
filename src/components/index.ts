@@ -8,3 +8,4 @@ export * from './Dropdown';
 export * from './AnimatedEyesFollowMouseCursor';
 export * from './WavySection';
 export * from './SlidingMenuIndicator';
+export * from './StickyElementsScrollingEffects';

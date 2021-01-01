@@ -54,6 +54,8 @@ export const AnimatedEyesFollowMouseCursor = memo(() => {
 
 const Box = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Eye = styled.div`
