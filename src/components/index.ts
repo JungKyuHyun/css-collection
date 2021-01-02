@@ -11,3 +11,4 @@ export * from './SlidingMenuIndicator';
 export * from './StickyElementsScrollingEffects';
 export * from './ShadowEffects';
 export * from './ListHoverEffects';
+export * from './HalfCircularBackground';
