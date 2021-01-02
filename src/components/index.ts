@@ -14,3 +14,4 @@ export * from './ListHoverEffects';
 export * from './HalfCircularBackground';
 export * from './RippleEffectsButton';
 export * from './HideScrollOnScrollDown';
+export * from './FakeScrollSpy';
