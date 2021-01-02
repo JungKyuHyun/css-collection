@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useRef } from 'react';
+import React, { memo, useCallback, useEffect, useRef, useMemo } from 'react';
 import styled from 'styled-components';
 import throttle from 'lodash/throttle';
 
@@ -12,13 +12,17 @@ export const SlidingMenuIndicator = memo(() => {
     }
   }, []);
 
-  const moveIndicator = throttle((ref: HTMLAnchorElement) => {
-    if (markerRef === null || markerRef.current === null) {
-      return;
-    }
-    markerRef.current.style.top = ref.offsetTop + 'px';
-    markerRef.current.style.width = ref.offsetWidth + 'px';
-  }, 150);
+  const moveIndicator = useMemo(
+    () =>
+      throttle((ref: HTMLAnchorElement) => {
+        if (markerRef === null || markerRef.current === null) {
+          return;
+        }
+        markerRef.current.style.top = ref.offsetTop + 'px';
+        markerRef.current.style.width = ref.offsetWidth + 'px';
+      }, 150),
+    [],
+  );
 
   useEffect(() => {
     linkRefs.current.forEach((ref) => {
