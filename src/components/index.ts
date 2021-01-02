@@ -15,3 +15,6 @@ export * from './HalfCircularBackground';
 export * from './RippleEffectsButton';
 export * from './HideScrollOnScrollDown';
 export * from './FakeScrollSpy';
+export * from './MovingText';
+export * from './CustomScrollbar';
+export * from './ScrollProgressBar';
