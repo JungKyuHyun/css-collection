@@ -1,10 +1,10 @@
 import React, { CSSProperties } from 'react';
 import { Meta, Story } from '@storybook/react';
-import { GlowingCheckbox } from '../components';
+import { RangeInput } from '../components';
 
 export default {
-  title: 'jacob-css/GlowingCheckbox',
-  component: GlowingCheckbox,
+  title: 'jacob-css/RangeInput',
+  component: RangeInput,
   decorators: [
     (Story) => {
       const style = {
@@ -27,14 +27,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'checkbox타입 input의 스타일을 조작하는 기초를 제공합니다.',
+        component: 'range타입 input의 스타일을 조작하는 기초를 제공합니다. ',
       },
     },
   },
 } as Meta;
 
 const Template: Story = () => {
-  return <GlowingCheckbox />;
+  return <RangeInput />;
 };
 
 export const BasicCss = Template.bind({});
