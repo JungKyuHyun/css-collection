@@ -58,7 +58,7 @@ const FillArea = styled.div`
 
 const Input = styled.input`
   position: relative;
-  width: calc(100vw - 60vw);
+  width: 400px;
   height: 16px;
   -webkit-appearance: none;
   background: whitesmoke;
@@ -76,6 +76,6 @@ const Input = styled.input`
     background: aqua;
     border: 1px solid gray;
     z-index: 2;
-    box-shadow: calc(-100vw + 57vw) 0 0 calc(100vw - 58vw) aquamarine;
+    box-shadow: -406px 0 0 400px aquamarine;
   }
 `;
