@@ -39,12 +39,14 @@ export const Modal = memo(() => {
           </ButtonContainer>
         </Content>
       </Container>
+      <div style={{ height: '2000px' }}>스크롤 만들기용</div>
       <Popup open={isOpen}>
         <PopupTitle>Jacob's Modal</PopupTitle>
         <PopupContents>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-          perspiciatis cupiditate sapiente perferendis non consequuntur, alias
-          dolores distinctio, qui obcaecati, recusandae incidunt quia nesciunt
+          모달이 열리면 뒷배경 스크롤은 동작하지 않습니다. <br /> Lorem ipsum
+          dolor sit amet consectetur adipisicing elit. Excepturi perspiciatis
+          cupiditate sapiente perferendis non consequuntur, alias dolores
+          distinctio, qui obcaecati, recusandae incidunt quia nesciunt
           laudantium ipsam maxime inventore reiciendis laboriosam.
         </PopupContents>
         <ButtonContainer>
@@ -92,6 +94,7 @@ const Container = styled.div<{ open: boolean }>`
   align-items: center;
   transition: 0.5s;
   padding: 20px;
+  box-sizing: border-box;
 
   ${(props) =>
     props.open &&
