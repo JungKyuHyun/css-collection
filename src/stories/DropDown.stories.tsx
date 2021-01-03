@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Dropdown } from '../components';
+import styled from 'styled-components';
 
 export default {
   title: 'jacob-css/Dropdown',
@@ -14,6 +15,18 @@ export default {
   },
 } as Meta;
 
-const Template: Story = (args) => <Dropdown {...args} />;
+const Template: Story = (args) => (
+  <>
+    <IndicateText>{`Click Here! -->`}</IndicateText>
+    <Dropdown {...args} />
+  </>
+);
+
+const IndicateText = styled.h2`
+  color: white;
+  position: absolute;
+  right: 120px;
+  top: 12px;
+`;
 
 export const UserInfoDropdown = Template.bind({});
