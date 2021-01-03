@@ -19,3 +19,4 @@ export * from './MovingText';
 export * from './CustomScrollbar';
 export * from './ScrollProgressBar';
 export * from './Modal';
+export * from './ThreeDimensionBackground';
