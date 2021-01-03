@@ -21,3 +21,4 @@ export * from './ScrollProgressBar';
 export * from './Modal';
 export * from './ThreeDimensionBackground';
 export * from './Accordion';
+export * from './Loader';
