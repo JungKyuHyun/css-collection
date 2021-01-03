@@ -9,4 +9,5 @@ export const parameters = {
       { name: 'white', value: 'white' },
     ],
   },
+  options: { showPanel: false },
 };
