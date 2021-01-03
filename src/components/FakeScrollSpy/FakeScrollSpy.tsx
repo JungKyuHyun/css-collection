@@ -9,6 +9,7 @@ export const FakeScrollSpy = memo(() => {
       <Services>Services Section</Services>
       <Portfolio>Portfolio Section</Portfolio>
       <Contact>Contact Section</Contact>
+
       <NavBar>
         <NavItem href="#home">Home</NavItem>
         <NavItem href="#about">About</NavItem>

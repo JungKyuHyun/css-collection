@@ -25,6 +25,11 @@ export default {
       );
     },
   ],
+  parameters: {
+    docs: {
+      description: { component: '마우스 포인터를 따라 눈동자가 움직입니다.' },
+    },
+  },
 } as Meta;
 
 const Template: Story = (args) => <AnimatedEyesFollowMouseCursor {...args} />;

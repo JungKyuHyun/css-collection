@@ -25,6 +25,11 @@ export default {
       );
     },
   ],
+  parameters: {
+    docs: {
+      description: { component: '반짝 반짝.' },
+    },
+  },
 } as Meta;
 
 const Template: Story<GlowingTextProps> = () => {

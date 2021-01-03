@@ -24,6 +24,13 @@ export default {
       );
     },
   ],
+  parameters: {
+    docs: {
+      description: {
+        component: '체크박스의 스타일의 조작하는 기초를 제공합니다.',
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story = () => {

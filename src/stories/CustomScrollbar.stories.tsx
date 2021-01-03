@@ -5,6 +5,11 @@ import { CustomScrollbar } from '../components';
 export default {
   title: 'jacob-css/CustomScrollbar',
   component: CustomScrollbar,
+  parameters: {
+    docs: {
+      description: { component: '스크롤을 커스텀하였습니다.' },
+    },
+  },
 } as Meta;
 
 const Template: Story = (args) => <CustomScrollbar {...args} />;

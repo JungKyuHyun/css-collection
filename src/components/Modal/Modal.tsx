@@ -107,6 +107,7 @@ const Content = styled.div`
   max-width: 400px;
   background: white;
   padding: 40px;
+  border-radius: 4px;
 `;
 
 const P = styled.p``;

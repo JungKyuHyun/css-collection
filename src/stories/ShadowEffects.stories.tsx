@@ -24,6 +24,13 @@ export default {
       );
     },
   ],
+  parameters: {
+    docs: {
+      description: {
+        component: '그림자 효과를 확인하기 위한 단순 도넛입니다.',
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story = () => {

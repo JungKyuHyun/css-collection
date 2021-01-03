@@ -24,6 +24,11 @@ export default {
       );
     },
   ],
+  parameters: {
+    docs: {
+      description: { component: '컨텐츠 아래쪽에 라운드된 배경을 제공합니다.' },
+    },
+  },
 } as Meta;
 
 const Template: Story = (args) => <HalfCircularBackground {...args} />;

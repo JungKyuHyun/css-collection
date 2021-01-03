@@ -9,6 +9,9 @@ export default {
     backgrounds: {
       default: 'white',
     },
+    docs: {
+      description: { component: '코카콜라 느낌의 배너와 배경입니다.' },
+    },
   },
   decorators: [
     (Story) => {

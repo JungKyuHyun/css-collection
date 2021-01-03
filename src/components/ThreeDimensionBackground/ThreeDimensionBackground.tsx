@@ -66,7 +66,7 @@ const Rotate = styled.div`
   height: 400px;
   transform-style: preserve-3d;
   animation: ${animation} 20s linear infinite;
-  zoom: 4;
+  zoom: 5;
 `;
 
 const Sphere = styled.div`

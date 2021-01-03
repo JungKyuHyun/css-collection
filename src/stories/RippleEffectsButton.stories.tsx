@@ -24,6 +24,11 @@ export default {
       );
     },
   ],
+  parameters: {
+    docs: {
+      description: { component: '버튼의 hover에 ripple효과를 줍니다.' },
+    },
+  },
 } as Meta;
 
 const Template: Story = (args) => <RippleEffectsButton {...args} />;
