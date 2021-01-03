@@ -18,3 +18,4 @@ export * from './FakeScrollSpy';
 export * from './MovingText';
 export * from './CustomScrollbar';
 export * from './ScrollProgressBar';
+export * from './Modal';
