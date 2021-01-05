@@ -16,27 +16,17 @@ export const TextArea = memo<TextAreaProp>(
       if (ref === null || ref.current === null) {
         return;
       }
+      ref.current.style.height = '38px';
       ref.current.style.height = ref.current.scrollHeight + 'px';
     }, []);
 
-    const handleResizeHeight = useCallback(
-      (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-        if (ref === null || ref.current === null) {
-          return;
-        }
-        if (
-          event.key === 'Backspace' ||
-          event.key === 'Delete' ||
-          event.metaKey
-        ) {
-          ref.current.style.height = 'auto';
-        } else {
-          ref.current.style.height = '0';
-        }
-        ref.current.style.height = ref.current.scrollHeight + 'px';
-      },
-      [],
-    );
+    const handleResizeHeight = useCallback(() => {
+      if (ref === null || ref.current === null) {
+        return;
+      }
+      ref.current.style.height = '38px';
+      ref.current.style.height = ref.current.scrollHeight + 'px';
+    }, []);
 
     return (
       <>
@@ -52,8 +42,7 @@ export const TextArea = memo<TextAreaProp>(
           rows={1}
           placeholder={placeholder}
           ref={ref}
-          onKeyPress={handleResizeHeight}
-          onKeyUp={handleResizeHeight}
+          onInput={handleResizeHeight}
         />
       </>
     );
@@ -76,8 +65,13 @@ const AutoResizeTextArea = styled.textarea`
   padding: 12px;
   display: block;
   outline: none;
+  min-height: 38px;
   border-radius: 4px;
-  caret-color: blue;
+  caret-color: lightskyblue;
   box-sizing: border-box;
-  transition: height 0.08s ease-out;
+  line-height: 20px;
+
+  &:focus {
+    background: azure;
+  }
 `;
