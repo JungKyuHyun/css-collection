@@ -27,3 +27,4 @@ export * from './RangeInput';
 export * from './WaveBorderCard';
 export * from './TextArea';
 export * from './SidebarMenu';
+export * from './Skeleton';
