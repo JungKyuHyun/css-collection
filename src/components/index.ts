@@ -30,3 +30,4 @@ export * from './SidebarMenu';
 export * from './Skeleton';
 export * from './GlowingRadio';
 export * from './Drag';
+export * from './Timeline';
