@@ -47,8 +47,9 @@ const Template: Story = () => {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setRadioValue(event.target.value);
     },
-    [],
+    []
   );
+
   return (
     <>
       <Title>checkbox</Title>
