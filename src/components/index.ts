@@ -31,3 +31,4 @@ export * from './Skeleton';
 export * from './GlowingRadio';
 export * from './Drag';
 export * from './Timeline';
+export * from './GlowingBackground';
