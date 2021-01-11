@@ -32,3 +32,4 @@ export * from './GlowingRadio';
 export * from './Drag';
 export * from './Timeline';
 export * from './GlowingBackground';
+export * from './Tooltip';
