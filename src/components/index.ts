@@ -33,3 +33,4 @@ export * from './Drag';
 export * from './Timeline';
 export * from './GlowingBackground';
 export * from './Tooltip';
+export * from './Portal';
