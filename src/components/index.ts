@@ -35,3 +35,4 @@ export * from './GlowingBackground';
 export * from './Tooltip';
 export * from './Portal';
 export * from './ThreeDimensionDebitCard';
+export * from './TextTyping';
