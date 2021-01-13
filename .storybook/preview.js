@@ -7,6 +7,9 @@ export const parameters = {
     values: [
       { name: 'dark', value: 'black' },
       { name: 'white', value: 'white' },
+      { name: 'dimgray', value: 'dimgray' },
+      { name: 'ghostwhite', value: 'ghostwhite' },
+      { name: 'whitesmoke', value: 'whitesmoke' },
     ],
   },
   options: { showPanel: false },

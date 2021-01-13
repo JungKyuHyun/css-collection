@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Loader, TwoRingLoader } from '../components';
+import { GradientLoader, Loader, TwoRingLoader } from '../components';
 
 export default {
   title: 'jacob-css/Loader',
@@ -39,6 +39,12 @@ const Template2: Story = () => {
   return <TwoRingLoader />;
 };
 
+const Template3: Story = () => {
+  return <GradientLoader />;
+};
+
 export const BasicCss = Template.bind({});
 
 export const TwoRing = Template2.bind({});
+
+export const Gradient = Template3.bind({});
