@@ -38,3 +38,4 @@ export * from './ThreeDimensionDebitCard';
 export * from './TextTyping';
 export * from './PasswordInput';
 export * from './HoverEffectCard';
+export * from './GhostText';
