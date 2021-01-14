@@ -37,3 +37,4 @@ export * from './Portal';
 export * from './ThreeDimensionDebitCard';
 export * from './TextTyping';
 export * from './PasswordInput';
+export * from './HoverEffectCard';
