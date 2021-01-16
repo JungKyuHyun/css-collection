@@ -41,3 +41,4 @@ export * from './HoverEffectCard';
 export * from './GhostText';
 export * from './MiniWavy';
 export * from './HeartAnimation';
+export * from './MouseCursor';

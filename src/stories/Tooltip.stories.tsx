@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Tooltip } from '../components';
+import { Tooltip, TooltipWithPortal, TooltipWithPortalProps } from '../components';
+import styled from 'styled-components';
 
 export default {
   title: 'jacob-css/Tooltip',
@@ -36,3 +37,22 @@ export default {
 const Template: Story = (args) => <Tooltip {...args} />;
 
 export const BasicCss = Template.bind({});
+
+const Template2: Story<TooltipWithPortalProps> = () => {
+  const shortText = "Jacob's playground!";
+
+  return (
+    <Container>
+      without using external or third party libraries.{' '}
+      <TooltipWithPortal contents={shortText}>JACOB CSS</TooltipWithPortal> ...!
+    </Container>
+  );
+};
+
+const Container = styled.div`
+  color: white;
+  width: 100%;
+  text-align: center;
+`;
+
+export const WithPortal = Template2.bind({});
