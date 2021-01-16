@@ -6,12 +6,9 @@ export const Modal = memo(() => {
 
   useEffect(() => {
     if (isOpen) {
-      if (
-        typeof window !== 'undefined' &&
-        document.body.scrollHeight > window.innerHeight
-      ) {
+      if (typeof window !== 'undefined' && document.body.scrollHeight > window.innerHeight) {
         document.body.style.overflowY = 'hidden';
-        document.body.style.paddingRight = '15px';
+        document.body.style.paddingRight = `${window.innerWidth - document.body.clientWidth}px`;
         return;
       }
     }
@@ -29,10 +26,9 @@ export const Modal = memo(() => {
         <Content>
           <h2>더보기를 누르면 모달이 나와요</h2>
           <P>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut
-            ipsa rerum aliquam culpa quasi, asperiores obcaecati consectetur,
-            magnam repudiandae blanditiis eos, rem nam. Quam maiores voluptate
-            saepe hic officia...
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ipsa rerum aliquam culpa quasi, asperiores
+            obcaecati consectetur, magnam repudiandae blanditiis eos, rem nam. Quam maiores voluptate saepe hic
+            officia...
           </P>
           <ButtonContainer>
             <Button onClick={handleClick}>더보기</Button>
@@ -43,11 +39,9 @@ export const Modal = memo(() => {
       <Popup open={isOpen}>
         <PopupTitle>Jacob's Modal</PopupTitle>
         <PopupContents>
-          모달이 열리면 뒷배경 스크롤은 동작하지 않습니다. <br /> Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Excepturi perspiciatis
-          cupiditate sapiente perferendis non consequuntur, alias dolores
-          distinctio, qui obcaecati, recusandae incidunt quia nesciunt
-          laudantium ipsam maxime inventore reiciendis laboriosam.
+          모달이 열리면 뒷배경 스크롤은 동작하지 않습니다. <br /> Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Excepturi perspiciatis cupiditate sapiente perferendis non consequuntur, alias dolores distinctio, qui
+          obcaecati, recusandae incidunt quia nesciunt laudantium ipsam maxime inventore reiciendis laboriosam.
         </PopupContents>
         <ButtonContainer>
           <Button onClick={handleClick}>닫기</Button>

@@ -40,3 +40,4 @@ export * from './PasswordInput';
 export * from './HoverEffectCard';
 export * from './GhostText';
 export * from './MiniWavy';
+export * from './HeartAnimation';
