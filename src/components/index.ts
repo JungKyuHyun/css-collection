@@ -39,3 +39,4 @@ export * from './TextTyping';
 export * from './PasswordInput';
 export * from './HoverEffectCard';
 export * from './GhostText';
+export * from './MiniWavy';
