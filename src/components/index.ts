@@ -43,3 +43,4 @@ export * from './MiniWavy';
 export * from './HeartAnimation';
 export * from './MouseCursor';
 export * from './ClipPathCircle';
+export * from './NumberCounter';
