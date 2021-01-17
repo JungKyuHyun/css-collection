@@ -42,3 +42,4 @@ export * from './GhostText';
 export * from './MiniWavy';
 export * from './HeartAnimation';
 export * from './MouseCursor';
+export * from './ClipPathCircle';
