@@ -1,6 +1,7 @@
 import React, { memo, useEffect, useRef } from 'react';
 import { BoxGeometry, Mesh, MeshBasicMaterial, PerspectiveCamera, Scene, WebGLRenderer } from 'three';
 import { DomUtils, RefUtils } from '../../utils';
+import { WebGLUtils } from '../../utils/WebGLUtils';
 
 export const BasicScene = memo(() => {
   const ref = useRef<HTMLDivElement>(null);
@@ -31,7 +32,12 @@ export const BasicScene = memo(() => {
       renderer.render(scene, camera);
     };
 
-    animate();
+    if (WebGLUtils.isWebGLAvailable()) {
+      animate();
+    } else {
+      const warning = WebGLUtils.getWebGLErrorMessage();
+      ref.current!.appendChild(warning);
+    }
   }, []);
 
   return <div ref={ref} />;
