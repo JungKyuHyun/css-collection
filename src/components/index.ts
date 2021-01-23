@@ -44,3 +44,4 @@ export * from './HeartAnimation';
 export * from './MouseCursor';
 export * from './ClipPathCircle';
 export * from './NumberCounter';
+export * from './WebGlAndThreeJS'
