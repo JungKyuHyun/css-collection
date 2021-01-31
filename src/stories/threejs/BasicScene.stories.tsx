@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { BasicScene } from '../../components';
+import { BasicScene, BasicScene2 } from '../../components';
 
 export default {
   title: 'threejs-by-jacob/BasicScene',
@@ -14,4 +14,7 @@ export default {
 
 const Template: Story = (args) => <BasicScene {...args} />;
 
+const Template2: Story = (args) => <BasicScene2 {...args} />;
+
 export const BasicCss = Template.bind({});
+export const ImproveBasicCss = Template2.bind({});

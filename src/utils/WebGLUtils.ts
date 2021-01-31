@@ -1,69 +1,82 @@
+import { ReactText } from 'react';
+import { BoxGeometry, Mesh, MeshPhongMaterial, Scene } from 'three';
+
 // https://github.com/mrdoob/three.js/blob/master/examples/jsm/WebGL.js
 export class WebGLUtils {
+  static isWebGLAvailable() {
+    try {
+      const canvas = document.createElement('canvas');
+      return !!(
+        window.WebGLRenderingContext &&
+        (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+      );
+    } catch (e) {
+      return false;
+    }
+  }
 
-	static isWebGLAvailable() {
-		try {
-			const canvas = document.createElement( 'canvas' );
-			return !! ( window.WebGLRenderingContext && ( canvas.getContext( 'webgl' ) || canvas.getContext( 'experimental-webgl' ) ) );
-		} catch ( e ) {
-			return false;
-		}
-	}
+  static isWebGL2Available() {
+    try {
+      const canvas = document.createElement('canvas');
+      return !!(window.WebGL2RenderingContext && canvas.getContext('webgl2'));
+    } catch (e) {
+      return false;
+    }
+  }
 
-	static isWebGL2Available() {
-		try {
-			const canvas = document.createElement( 'canvas' );
-			return !! ( window.WebGL2RenderingContext && canvas.getContext( 'webgl2' ) );
-		} catch ( e ) {
-			return false;
-		}
-	}
+  static getWebGLErrorMessage() {
+    return this.getErrorMessage(1);
+  }
 
-	static getWebGLErrorMessage() {
-		return this.getErrorMessage( 1 );
-	}
+  static getWebGL2ErrorMessage() {
+    return this.getErrorMessage(2);
+  }
 
-	static getWebGL2ErrorMessage() {
-		return this.getErrorMessage( 2 );
-	}
+  static getErrorMessage(version: number) {
+    const names: { [key in number]: any } = {
+      1: 'WebGL',
+      2: 'WebGL 2',
+    };
 
-	static getErrorMessage( version: number ) {
-		const names: { [key in number]: any} = {
-			1: 'WebGL',
-			2: 'WebGL 2'
-		};
+    const contexts: { [key in number]: any } = {
+      1: window.WebGLRenderingContext,
+      2: window.WebGL2RenderingContext,
+    };
 
-		const contexts: { [key in number]: any} = {
-			1: window.WebGLRenderingContext,
-			2: window.WebGL2RenderingContext
-		};
+    let message =
+      'Your $0 does not seem to support <a href="http://khronos.org/webgl/wiki/Getting_a_WebGL_Implementation" style="color:#000">$1</a>';
 
-		let message = 'Your $0 does not seem to support <a href="http://khronos.org/webgl/wiki/Getting_a_WebGL_Implementation" style="color:#000">$1</a>';
+    const element = document.createElement('div');
+    element.id = 'webglmessage';
+    element.style.fontFamily = 'monospace';
+    element.style.fontSize = '13px';
+    element.style.fontWeight = 'normal';
+    element.style.textAlign = 'center';
+    element.style.background = '#fff';
+    element.style.color = '#000';
+    element.style.padding = '1.5em';
+    element.style.width = '400px';
+    element.style.margin = '5em auto 0';
 
-		const element = document.createElement( 'div' );
-		element.id = 'webglmessage';
-		element.style.fontFamily = 'monospace';
-		element.style.fontSize = '13px';
-		element.style.fontWeight = 'normal';
-		element.style.textAlign = 'center';
-		element.style.background = '#fff';
-		element.style.color = '#000';
-		element.style.padding = '1.5em';
-		element.style.width = '400px';
-		element.style.margin = '5em auto 0';
+    if (contexts[version]) {
+      message = message.replace('$0', 'graphics card');
+    } else {
+      message = message.replace('$0', 'browser');
+    }
 
-		if (contexts[version]) {
-			message = message.replace('$0', 'graphics card');
-		} else {
-			message = message.replace('$0', 'browser');
-		}
+    message = message.replace('$1', names[version]);
+    element.innerHTML = message;
 
-		message = message.replace('$1', names[version]);
-		element.innerHTML = message;
+    return element;
+  }
 
-		return element;
+  static makeInstance(scene: Scene, geometry: BoxGeometry, color: ReactText, x: number) {
+    const material = new MeshPhongMaterial({ color });
+    const cube = new Mesh(geometry, material);
+    scene.add(cube);
 
-	}
+    cube.position.x = x;
 
-};
-
+    return { scene, cube };
+  }
+}
