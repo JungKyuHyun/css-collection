@@ -1,5 +1,5 @@
 import { ReactText } from 'react';
-import { BoxGeometry, Mesh, MeshPhongMaterial, Scene } from 'three';
+import { BoxGeometry, Mesh, MeshPhongMaterial, Renderer, Scene } from 'three';
 
 // https://github.com/mrdoob/three.js/blob/master/examples/jsm/WebGL.js
 export class WebGLUtils {
@@ -78,5 +78,16 @@ export class WebGLUtils {
     cube.position.x = x;
 
     return { scene, cube };
+  }
+
+  static resizeRendererToDisplaySize(renderer: Renderer) {
+    const canvas = renderer.domElement;
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+      renderer.setSize(width, height, false);
+    }
+    return needResize;
   }
 }
