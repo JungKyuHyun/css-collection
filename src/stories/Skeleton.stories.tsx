@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Skeleton } from '../components';
+import { Skeleton, Skeleton2 } from '../components';
 
 export default {
   title: 'jacob-css/Skeleton',
@@ -27,8 +27,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          '데이터가 로드되기 전에 미리 보기를 표시하여 로드시간에 대한 불만을 줄입니다.',
+        component: '데이터가 로드되기 전에 미리 보기를 표시하여 로드시간에 대한 불만을 줄입니다.',
       },
     },
   },
@@ -36,4 +35,8 @@ export default {
 
 const Template: Story = (args) => <Skeleton {...args} />;
 
-export const BasicCss = Template.bind({});
+const Template2: Story = (args) => <Skeleton2 {...args} />;
+
+export const style1 = Template.bind({});
+
+export const style2 = Template2.bind({});
