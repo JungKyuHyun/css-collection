@@ -8,7 +8,15 @@
 - vercel에서 빌드
 - [storybook](https://css-collection-git-main.jungkyuhyun.vercel.app/)에서 확인할 수 있습니다.
 
+
+## Preview
+
+### only css
 ![2021-01-11_13-43-20 (1)](https://user-images.githubusercontent.com/42884032/104147787-1ba76880-5413-11eb-8775-1d4639a08b03.gif)
+
+### canvas
+![2021-02-21_20-15-38 (1)](https://user-images.githubusercontent.com/42884032/108623346-e6fee600-7481-11eb-8799-5508c089c3e8.gif)
+
 
 ## Command
 
