@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { BasicScene, BasicScene2, BasicScene3 } from '../../components';
 
 export default {
-  title: 'threejs-by-jacob/BasicScene',
+  title: 'threejs/BasicScene',
   component: BasicScene,
   parameters: {
     docs: {
