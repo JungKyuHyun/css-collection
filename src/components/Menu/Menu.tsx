@@ -29,7 +29,7 @@ export const Menu = memo<Props>(({ className, list }) => {
   );
 
   const closeAll = useCallback((e: MouseEvent) => {
-    if (e.target !== null && (e.target as HTMLElement).nodeName !== 'SPAN') {
+    if (e.target !== null && (e.target as HTMLElement).id !== 'jacob-context-menu') {
       setOpenedIndex(null);
     }
   }, []);
@@ -52,7 +52,8 @@ export const Menu = memo<Props>(({ className, list }) => {
                 setOpenedIndex(null);
               };
               return (
-                <ContextMenu key={label} onClick={handleClick}>
+                // https://courses.cs.washington.edu/courses/cse154/17au/styleguide/html-css/naming-conventions-html.html#class-id-names
+                <ContextMenu id="jacob-context-menu" key={label} onClick={handleClick}>
                   {label}
                 </ContextMenu>
               );
