@@ -47,3 +47,4 @@ export * from './NumberCounter';
 export * from './WebGlAndThreeJS';
 export * from './Menu';
 export * from './MoveSheep';
+export * from './Canvas';

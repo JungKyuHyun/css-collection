@@ -1,27 +1,21 @@
-import { useCallback, useEffect, useState } from "react";
-import { DomUtils } from "../utils";
+import { useCallback, useEffect, useState } from 'react';
+import { DomUtils } from '../utils';
 
 function useScreenSize() {
-  const [width, setWidth] = useState(document.body.clientWidth);
-  const [height, setHeight] = useState(document.body.clientHeight);
+  const [size, setSize] = useState({ width: document.body.clientWidth, height: document.body.clientHeight });
 
   const resize = useCallback(() => {
-    setWidth(document.body.clientWidth);
-    setHeight(document.body.clientHeight);
-  },[]);
-
-
+    setSize((pre) => ({ ...pre, width: document.body.clientWidth, height: document.body.clientHeight }));
+  }, []);
 
   useEffect(() => {
-    if(!DomUtils.usableWindow()) {
-      return;
-    }
-    resize();    
+    if (!DomUtils.usableWindow()) return;
     window.addEventListener('resize', resize, false);
+    resize();
     return () => window.removeEventListener('resize', resize, false);
-  },[resize])
+  }, [resize]);
 
-  return { width, height }
+  return { stageWidth: size.width, stageHeight: size.height };
 }
 
 export default useScreenSize;

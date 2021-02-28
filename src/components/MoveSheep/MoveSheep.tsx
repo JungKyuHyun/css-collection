@@ -1,17 +1,17 @@
 import React, { memo, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import useScreenSize from '../../hooks/useScreenSize';
 import { DotsType, Hill } from './Hill';
 import { SheepController } from './SheepController';
 import { Sun } from './Sun';
 
 export const MoveSheep = memo(() => {
   const ref = useRef<HTMLCanvasElement>(null);
+  const { stageWidth, stageHeight } = useScreenSize();
 
   useEffect(() => {
     if (ref.current === null) return;
     const ctx = ref.current.getContext('2d');
-    let stageWidth: number;
-    let stageHeight: number;
 
     const hills = [new Hill('#fd6bea', 0.2, 12), new Hill('#ff59c2', 0.5, 8), new Hill('#ff4674', 1.4, 6)];
     const sheepController = new SheepController();
@@ -19,8 +19,6 @@ export const MoveSheep = memo(() => {
 
     const resize = () => {
       if (ref.current === null) return;
-      stageWidth = document.body.clientWidth;
-      stageHeight = document.body.clientHeight;
 
       ref.current.width = stageWidth * 2;
       ref.current.height = stageHeight * 2;
@@ -55,7 +53,7 @@ export const MoveSheep = memo(() => {
     return () => {
       window.removeEventListener('resize', resize, false);
     };
-  }, []);
+  }, [stageWidth, stageHeight]);
 
   return <Canvas ref={ref} />;
 });

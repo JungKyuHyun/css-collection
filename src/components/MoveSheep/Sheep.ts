@@ -1,7 +1,7 @@
-import { DotsType, DotType } from "./Hill";
+import { DotsType, DotType } from './Hill';
 
-export  class Sheep {
-  img:HTMLImageElement;
+export class Sheep {
+  img: HTMLImageElement;
   stageWidth: number;
   width = 0;
 
@@ -23,7 +23,6 @@ export  class Sheep {
   fpsTime = 1000 / this.fps;
   time = 0;
 
-
   constructor(img: HTMLImageElement, stageWidth: number) {
     this.img = img;
     this.stageWidth = stageWidth;
@@ -31,17 +30,17 @@ export  class Sheep {
   }
 
   draw(ctx: CanvasRenderingContext2D | null, t: number, dots: DotsType) {
-    if(ctx === null) return;
-    
-    if(!this.time) {
+    if (ctx === null) return;
+
+    if (!this.time) {
       this.time = t;
     }
 
     const now = t - this.time;
-    if(now > this.fpsTime) {
+    if (now > this.fpsTime) {
       this.time = t;
       this.curFrame += 1;
-      if(this.curFrame === this.totalFrame) {
+      if (this.curFrame === this.totalFrame) {
         this.curFrame = 0;
       }
     }
@@ -50,7 +49,7 @@ export  class Sheep {
   }
 
   animate(ctx: CanvasRenderingContext2D | null, dots: DotsType) {
-    if(ctx === null) return;
+    if (ctx === null) return;
 
     this.x -= this.speed;
     const closest = this.getY(this.x, dots);
@@ -60,29 +59,29 @@ export  class Sheep {
     ctx.translate(this.x, this.y);
     ctx.rotate(closest.rotation);
     ctx.drawImage(
-      this.img, 
-      this.imgWidth * this.curFrame, 
-      0, 
-      this.imgWidth, 
-      this.imgHeight, 
-      -this.sheepWidthHalf, 
-      -this.sheepHeight + 20, 
-      this.sheepWidth, 
+      this.img,
+      this.imgWidth * this.curFrame,
+      0,
+      this.imgWidth,
+      this.imgHeight,
+      -this.sheepWidthHalf,
+      -this.sheepHeight + 20,
+      this.sheepWidth,
       this.sheepHeight
     );
     ctx.restore();
   }
 
   getY(x: number, dots: DotsType) {
-    let result = { y: 0, rotation: 0 }
+    let result = { y: 0, rotation: 0 };
 
-    dots.forEach(dot => {
-      if(x >= dot.x1 && x <= dot.x3) {
+    dots.forEach((dot) => {
+      if (x >= dot.x1 && x <= dot.x3) {
         result = this.getY2(x, dot);
         return;
       }
-    })
-    
+    });
+
     return result;
   }
 
@@ -91,37 +90,37 @@ export  class Sheep {
     let pt = this.getPointOnQuad(dot.x1, dot.y1, dot.x2, dot.y2, dot.x3, dot.y3, 0);
     let prevX = pt.x;
 
-    for(let i=1; i < total; i++) {
+    for (let i = 1; i < total; i++) {
       const t = i / total;
       pt = this.getPointOnQuad(dot.x1, dot.y1, dot.x2, dot.y2, dot.x3, dot.y3, t);
 
-      if(x >= prevX && x <= pt.x) {
+      if (x >= prevX && x <= pt.x) {
         return pt;
       }
       prevX = pt.x;
     }
-    // console.log(pt)
+
     return pt;
   }
 
   getQuadValue(p0: number, p1: number, p2: number, t: number) {
     // https://en.wikipedia.org/wiki/B%C3%A9zier_curve
-    return (1-t) * (1-t) * p0 + 2 * (1-t) * t * p1 + t * t * p2;
+    return (1 - t) * (1 - t) * p0 + 2 * (1 - t) * t * p1 + t * t * p2;
   }
 
   getPointOnQuad(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number, t: number) {
     const tx = this.quadTangent(x1, x2, x3, t);
     const ty = this.quadTangent(y1, y2, y3, t);
-    const rotation = -Math.atan2(tx, ty) + (90 * Math.PI / 180);
-    
+    const rotation = -Math.atan2(tx, ty) + (90 * Math.PI) / 180;
+
     return {
       x: this.getQuadValue(x1, x2, x3, t),
       y: this.getQuadValue(y1, y2, y3, t),
       rotation: rotation,
-    }
+    };
   }
 
   quadTangent(a: number, b: number, c: number, t: number) {
-    return 2 * (1-t) * (b-a) + 2 * (c-b) * t;
+    return 2 * (1 - t) * (b - a) + 2 * (c - b) * t;
   }
 }
