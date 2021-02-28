@@ -2,8 +2,8 @@ export class Point {
   x;
   y;
   fixedY;
-  speed = 0.1;
-  cur = 0;
+  speed = 0.01;
+  cur;
 
   // 얼마나 움직일 것인가에 대한 프로퍼티
   max = Math.random() * 100 + 150;

@@ -1,19 +1,21 @@
-import { useCallback, useEffect, useState } from 'react';
+import { debounce } from 'lodash';
+import { useEffect, useState } from 'react';
 import { DomUtils } from '../utils';
 
 function useScreenSize() {
   const [size, setSize] = useState({ width: document.body.clientWidth, height: document.body.clientHeight });
 
-  const resize = useCallback(() => {
-    setSize((pre) => ({ ...pre, width: document.body.clientWidth, height: document.body.clientHeight }));
-  }, []);
-
   useEffect(() => {
     if (!DomUtils.usableWindow()) return;
+
+    const resize = debounce(() => {
+      setSize((pre) => ({ ...pre, width: document.body.clientWidth, height: document.body.clientHeight }));
+    }, 400);
+
     window.addEventListener('resize', resize, false);
     resize();
     return () => window.removeEventListener('resize', resize, false);
-  }, [resize]);
+  }, []);
 
   return { stageWidth: size.width, stageHeight: size.height };
 }

@@ -6,9 +6,10 @@ export class WaveGroup {
 
   color = ['rgba(255, 0, 0, 0.4)', 'rgba(255, 255, 0, 0.4)', 'rgba(0, 255, 255, 0.4)'];
 
-  waves: Array<Wave> = [];
+  waves: Array<Wave>;
 
   constructor() {
+    this.waves = [];
     for (let i = 0; i < this.totalWaves; i++) {
       const wave = new Wave(i, this.totalPoints, this.color[i]);
       this.waves[i] = wave;
