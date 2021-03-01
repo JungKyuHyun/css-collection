@@ -2,14 +2,19 @@ import React, { memo, useCallback, useEffect, useMemo, useRef } from 'react';
 import useScreenSize from '../../../hooks/useScreenSize';
 import { DomUtils } from '../../../utils';
 import { Ball } from './Ball';
+import { Block } from './Block';
 
 export const BouncingBall = memo(() => {
   const ref = useRef<HTMLCanvasElement>(null);
   const { stageWidth, stageHeight } = useScreenSize();
 
   const ball = useMemo(() => {
-    return new Ball(stageWidth, stageHeight, 60, 15);
+    return new Ball(stageWidth, stageHeight, 60, 8);
   }, [stageWidth, stageHeight]);
+
+  const block = useMemo(() => {
+    return new Block(700, 30, 300, 450);
+  }, []);
 
   const resize = useCallback(() => {
     if (ref.current === null) return;
@@ -32,9 +37,10 @@ export const BouncingBall = memo(() => {
 
       window.requestAnimationFrame(animate);
 
-      ball.draw(ctx, stageWidth, stageHeight);
+      block.draw(ctx);
+      ball.draw(ctx, stageWidth, stageHeight, block);
     },
-    [stageWidth, stageHeight, ball]
+    [stageWidth, stageHeight, ball, block]
   );
 
   useEffect(() => {
