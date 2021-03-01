@@ -41,16 +41,19 @@ export const RotatingPolygon = memo(() => {
     ctx?.scale(pixelRatio, pixelRatio);
   }, [stageWidth, stageHeight]);
 
-  const animate = useCallback(() => {
-    if (ref.current === null) return;
+  const animate = useCallback(
+    (t: number) => {
+      if (ref.current === null) return;
 
-    const ctx = ref.current.getContext('2d');
-    ctx?.clearRect(0, 0, stageWidth, stageHeight);
+      const ctx = ref.current.getContext('2d');
+      ctx?.clearRect(0, 0, stageWidth, stageHeight);
 
-    setPointer((prev) => ({ ...prev, moveX: (prev.moveX *= 0.92) }));
+      setPointer((prev) => ({ ...prev, moveX: (prev.moveX *= 0.92) }));
 
-    polygon.animate(ctx, pointer.moveX);
-  }, [stageWidth, stageHeight, polygon, pointer.moveX]);
+      polygon.animate(ctx, pointer.moveX);
+    },
+    [stageWidth, stageHeight, polygon, pointer.moveX]
+  );
 
   useEffect(() => {
     if (!DomUtils.usableWindow()) return;
