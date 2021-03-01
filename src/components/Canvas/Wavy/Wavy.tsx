@@ -1,5 +1,4 @@
 import React, { memo, useCallback, useEffect, useMemo, useRef } from 'react';
-import styled from 'styled-components';
 import useScreenSize from '../../../hooks/useScreenSize';
 import { DomUtils } from '../../../utils';
 import { WaveGroup } from './WaveGroup';
@@ -16,9 +15,11 @@ export const Wavy = memo(() => {
     if (ref.current === null) return;
 
     const ctx = ref.current.getContext('2d');
-    ref.current.width = stageWidth * 2;
-    ref.current.height = stageHeight * 2;
-    ctx?.scale(2, 2);
+    const pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
+
+    ref.current.width = stageWidth * pixelRatio;
+    ref.current.height = stageHeight * pixelRatio;
+    ctx?.scale(pixelRatio, pixelRatio);
 
     waveGroup.resize(stageWidth, stageHeight);
   }, [stageWidth, stageHeight, waveGroup]);
@@ -53,10 +54,5 @@ export const Wavy = memo(() => {
     return () => window.cancelAnimationFrame(num);
   }, [animate]);
 
-  return <Canvas ref={ref} />;
+  return <canvas ref={ref} />;
 });
-
-const Canvas = styled.canvas`
-  width: 100%;
-  height: 100%;
-`;
