@@ -25,7 +25,9 @@ export const RotatingPolygon = memo(() => {
     [pointer]
   );
 
-  const handlePointerUp = useCallback((event: React.PointerEvent<HTMLCanvasElement>) => {}, []);
+  const handlePointerUp = useCallback((event: React.PointerEvent<HTMLCanvasElement>) => {
+    setPointer((prev) => ({ ...prev, isDown: false }));
+  }, []);
 
   const resize = useCallback(() => {
     if (ref.current === null) return;
